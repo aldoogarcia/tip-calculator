@@ -1,11 +1,12 @@
 import {menuItems} from './data/bd'
 import useOrder from './hooks/useOrder'
 import MenuItem from './components/menuItem'
+import ViewOrder from './components/viewOrder'
 
 
 function App() {
 
-  const{addItem}= useOrder()
+  const{addItem,order,removeItem}= useOrder()
 
   return (
     <>
@@ -15,20 +16,28 @@ function App() {
       
 
       <main className='grid md:grid-cols-2 container mx-auto mt-5'>
-          <div className="">
+          <div>
             <h1 className='text-center font-black text-4xl'>Menu</h1>
               {menuItems.map((item) => (
-                <div className="">
+                <div key={item.id} className="">
                 <MenuItem
-                key={item.id}
+                
                 item={item}
                 addItem={addItem}
                 /> 
                 </div>
               ))}
           </div>
+
+
           <div className="">
             <h1 className='text-center font-black text-4xl'>Pedido</h1>
+            <div className="">
+              <ViewOrder
+              order={order}
+              removeItem={removeItem}
+              />
+            </div>
           </div>
       </main>
     </>
