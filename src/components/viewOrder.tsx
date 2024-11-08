@@ -1,11 +1,16 @@
 import { MenuItem, OrderItem } from "../types";
 
+
+
 type viewOrderProps = {
   order: OrderItem[],
   removeItem: (id:MenuItem['id'])=>void
 };
 
 export default function ViewOrder({ order,removeItem }: viewOrderProps) {
+  
+
+
   return (
     <div className="text-center">
       <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
@@ -43,6 +48,10 @@ export default function ViewOrder({ order,removeItem }: viewOrderProps) {
           )}
         </tbody>
       </table>
+
+      <p>
+       
+      </p>
     </div>
   );
 }
